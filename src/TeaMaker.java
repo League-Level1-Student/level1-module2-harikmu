@@ -1,12 +1,29 @@
+import javax.swing.JOptionPane;
+
 /*
  *    Copyright (c) The League of Amazing Programmers 2013-2017
  *    Level 1
  */
 
 public class TeaMaker {
-
+	public static void main(String[] args){
 	/* Figure out how to make a cup of tea using the classes below */
+	// ask user for flavor they want
+	String flavor = JOptionPane.showInputDialog("What flavor of tea do you want?");
+	// ask user if they want cold or hot water
+	String temperature = JOptionPane.showInputDialog("Do you want your tea hot or cold?");
 
+	// put water in kettle
+	Kettle kettle = new Kettle();
+	Cup cup = new Cup();
+	if(temperature.equals("hot")) {
+		kettle.boil();
+	}
+	// put teabag in water
+	TeaBag teabag = new TeaBag(flavor);
+	// cook tea
+	cup.makeTea(teabag, kettle.getWater());
+	}
 }
 
 class TeaBag {
